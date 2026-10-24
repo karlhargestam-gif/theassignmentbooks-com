@@ -29,7 +29,8 @@
   <meta name="twitter:image" content="https://www.theassignmentbooks.com/cover-journey.jpg">
   <meta name="twitter:image:alt" content="Cover of The Assignment: Journey to the Extreme by Karl Hargestam">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <link rel="preload" as="image" href="/books-hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" type="image/avif" href="/books-hero-portrait-960.avif" media="(max-aspect-ratio: 3/4)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/avif" imagesrcset="/books-hero-1280.avif 1280w, /books-hero-1920.avif 1920w" imagesizes="100vw" media="(min-aspect-ratio: 3001/4000)" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -95,7 +96,7 @@
     .nav{position:absolute;inset:0 0 auto;z-index:20;padding:1.25rem clamp(1.1rem,4vw,4rem);display:flex;justify-content:flex-end;gap:1.3rem;color:#fff;font-size:.82rem;font-weight:700;letter-spacing:.04em}
     .nav a{padding:.4rem 0;border-bottom:1px solid transparent}.nav a:hover{border-color:#fff}
     .hero{min-height:100svh;position:relative;display:grid;align-items:end;isolation:isolate;overflow:hidden;background:#090909;color:#fff;padding:clamp(5.5rem,13vw,9rem) clamp(1.2rem,5vw,5rem) clamp(3rem,7vw,6.5rem)}
-    .hero::before{content:"";position:absolute;inset:0;z-index:-3;background-image:radial-gradient(circle at 70% 35%,rgba(217,35,46,.23),transparent 37%),linear-gradient(120deg,rgba(5,5,5,.9) 5%,rgba(27,27,27,.66) 57%,rgba(8,8,8,.9)),url('/books-hero.jpg');background-size:cover;background-position:center}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-3;background-image:radial-gradient(circle at 70% 35%,rgba(217,35,46,.23),transparent 37%),linear-gradient(120deg,rgba(5,5,5,.9) 5%,rgba(27,27,27,.66) 57%,rgba(8,8,8,.9))}
     .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.76) 0%,rgba(0,0,0,.22) 55%,rgba(0,0,0,.6) 100%),linear-gradient(0deg,rgba(0,0,0,.75),transparent 46%)}
     .hero-inner{width:min(100%,var(--max));margin:auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);gap:clamp(2rem,7vw,8rem);align-items:center}
     .hero-copy{align-self:end}.kicker{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#f0a0a5;margin:0 0 1.1rem}
@@ -138,6 +139,13 @@
 .mini-cover{padding:0}
 .mini-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .booklet-img{width:min(64%,240px);height:auto;box-shadow:0 25px 50px rgba(0,0,0,.45);transform:rotate(2deg);display:block}
+/* Hero photo as a responsive <picture> (AVIF/WebP, JPG fallback) under the same gradients. */
+.hero-bg{position:absolute;inset:0;z-index:-4;display:block}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+picture.pic{display:contents}
+/* WCAG AA contrast */
+.milestone p{color:#fff}
+.follow .kicker{color:var(--red-deep)}
 
 </style>
 </head>
@@ -148,6 +156,13 @@
   </nav>
 
   <header class="hero">
+    <picture class="hero-bg" aria-hidden="true">
+      <source type="image/avif" media="(max-aspect-ratio: 3/4)" srcset="/books-hero-portrait-960.avif">
+      <source type="image/webp" media="(max-aspect-ratio: 3/4)" srcset="/books-hero-portrait-960.webp">
+      <source type="image/avif" srcset="/books-hero-1280.avif 1280w, /books-hero-1920.avif 1920w" sizes="100vw">
+      <source type="image/webp" srcset="/books-hero-1280.webp 1280w, /books-hero-1920.webp 1920w" sizes="100vw">
+      <img src="/books-hero.jpg" alt="" width="1920" height="1280" fetchpriority="high" decoding="async">
+    </picture>
     <div class="hero-inner">
       <div class="hero-copy">
         <p class="kicker">Karl Hargestam</p>
@@ -156,9 +171,9 @@
         <a class="hero-cta" href="#catalog">Explore the books <span aria-hidden="true">↓</span></a>
       </div>
       <div class="hero-books" aria-hidden="true">
-        <div class="mini-cover mc1"><img src="cover-path.jpg" alt="Original cover: Path Unveiled"></div>
-        <div class="mini-cover mc2"><img src="cover-manifesto.jpg" alt="Original cover: The Blessible Manifesto"></div>
-        <div class="mini-cover mc3"><img src="cover-journey.jpg" alt="Original cover: The Assignment: Journey to the Extreme"></div>
+        <div class="mini-cover mc1"><picture class="pic"><source type="image/avif" srcset="cover-path.avif"><source type="image/webp" srcset="cover-path.webp"><img src="cover-path.jpg" alt="Original cover: Path Unveiled" width="402" height="610" decoding="async"></picture></div>
+        <div class="mini-cover mc2"><picture class="pic"><source type="image/avif" srcset="cover-manifesto.avif"><source type="image/webp" srcset="cover-manifesto.webp"><img src="cover-manifesto.jpg" alt="Original cover: The Blessible Manifesto" width="280" height="457" decoding="async"></picture></div>
+        <div class="mini-cover mc3"><picture class="pic"><source type="image/avif" srcset="cover-journey.avif"><source type="image/webp" srcset="cover-journey.webp"><img src="cover-journey.jpg" alt="Original cover: The Assignment: Journey to the Extreme" width="402" height="631" decoding="async"></picture></div>
       </div>
     </div>
   </header>
@@ -173,7 +188,7 @@
       <div class="catalog">
         <article class="book">
           <div class="cover-stage">
-            <img class="cover-img" src="cover-journey.jpg" alt="Original cover: The Assignment: Journey to the Extreme">
+            <picture class="pic"><source type="image/avif" srcset="cover-journey.avif"><source type="image/webp" srcset="cover-journey.webp"><img class="cover-img" src="cover-journey.jpg" alt="Original cover: The Assignment: Journey to the Extreme" width="402" height="631" decoding="async" loading="lazy"></picture>
           </div>
           <div class="book-copy">
             <p class="series">The Assignment Series · Volume 1</p>
@@ -186,7 +201,7 @@
 
         <article class="book">
           <div class="cover-stage">
-            <img class="cover-img" src="cover-path.jpg" alt="Original cover: Path Unveiled">
+            <picture class="pic"><source type="image/avif" srcset="cover-path.avif"><source type="image/webp" srcset="cover-path.webp"><img class="cover-img" src="cover-path.jpg" alt="Original cover: Path Unveiled" width="402" height="610" decoding="async" loading="lazy"></picture>
           </div>
           <div class="book-copy">
             <p class="series">The Assignment Series · Volume 2</p>
@@ -199,7 +214,7 @@
 
         <article class="book">
           <div class="cover-stage">
-            <img class="cover-img" src="cover-workbook.jpg" alt="Original cover: The Assignment Workbook">
+            <picture class="pic"><source type="image/avif" srcset="cover-workbook.avif"><source type="image/webp" srcset="cover-workbook.webp"><img class="cover-img" src="cover-workbook.jpg" alt="Original cover: The Assignment Workbook" width="403" height="541" decoding="async" loading="lazy"></picture>
           </div>
           <div class="book-copy">
             <p class="series">Companion guide</p>
@@ -212,7 +227,7 @@
 
         <article class="book">
           <div class="cover-stage">
-            <img class="cover-img" src="cover-core.jpg" alt="Original cover: Mission One Eleven: The Core">
+            <picture class="pic"><source type="image/avif" srcset="cover-core.avif"><source type="image/webp" srcset="cover-core.webp"><img class="cover-img" src="cover-core.jpg" alt="Original cover: Mission One Eleven: The Core" width="401" height="603" decoding="async" loading="lazy"></picture>
           </div>
           <div class="book-copy">
             <p class="series">Training resource</p>
@@ -225,7 +240,7 @@
 
         <article class="book">
           <div class="cover-stage">
-            <img class="cover-img" src="cover-manifesto.jpg" alt="Original cover: One Chance: A Brief for the Global Assignment — The Blessible Manifesto">
+            <picture class="pic"><source type="image/avif" srcset="cover-manifesto.avif"><source type="image/webp" srcset="cover-manifesto.webp"><img class="cover-img" src="cover-manifesto.jpg" alt="Original cover: One Chance: A Brief for the Global Assignment — The Blessible Manifesto" width="280" height="457" decoding="async" loading="lazy"></picture>
           </div>
           <div class="book-copy">
             <p class="series">Newest book</p>
@@ -245,7 +260,7 @@
           <p class="number-label">Salvation booklets given away</p>
         </div>
         <div>
-          <img class="booklet-img" src="cover-areyousaved.jpg" alt="Original cover: Are You Saved? booklet">
+          <picture class="pic"><source type="image/avif" srcset="cover-areyousaved-480.avif"><source type="image/webp" srcset="cover-areyousaved-480.webp"><img class="booklet-img" src="cover-areyousaved.jpg" alt="Original cover: Are You Saved? booklet" width="1179" height="2013" decoding="async" loading="lazy"></picture>
           <h2>5.2 million booklets given away.</h2>
           <p>Through Joshua Campaign, 5.2 million “Are You Saved?” salvation booklets have been given away.</p>
         </div>
