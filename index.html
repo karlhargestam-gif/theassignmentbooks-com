@@ -70,11 +70,11 @@
         "numberOfItems":5,
         "itemListOrder":"https://schema.org/ItemListOrderAscending",
         "itemListElement":[
-          {"@type":"ListItem","position":1,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#journey-to-the-extreme","name":"The Assignment: Journey to the Extreme","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2010","numberOfPages":162,"bookFormat":"https://schema.org/Paperback","inLanguage":"en"}},
-          {"@type":"ListItem","position":2,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#path-unveiled","name":"Path Unveiled","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2014","numberOfPages":288,"inLanguage":"en"}},
-          {"@type":"ListItem","position":3,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#assignment-workbook","name":"The Assignment Workbook","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2010","numberOfPages":82,"inLanguage":"en"}},
-          {"@type":"ListItem","position":4,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#mission-one-eleven-core","name":"Mission One Eleven: The Core","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2015","numberOfPages":196,"inLanguage":"en"}},
-          {"@type":"ListItem","position":5,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#one-chance-blessible-manifesto","name":"One Chance: A Brief for the Global Assignment — The Blessible Manifesto","author":{"@id":"https://www.karlhargestam.com/#person"},"inLanguage":"en"}}
+          {"@type":"ListItem","position":1,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#one-chance-blessible-manifesto","name":"One Chance: A Brief for the Global Assignment — The Blessible Manifesto","url":"https://www.theassignmentbooks.com/#one-chance-blessible-manifesto","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2026-09-02","numberOfPages":82,"isbn":"9781882449316","bookFormat":"https://schema.org/Paperback","publisher":{"@type":"Organization","name":"Messenger Publishing House"},"image":"https://www.theassignmentbooks.com/cover-manifesto.jpg","inLanguage":"en","sameAs":["https://www.amazon.com/dp/B0HHMVRT21","https://www.amazon.com/dp/B0HHK2XG72","https://www.pcg.org/product/one-chance"]}},
+          {"@type":"ListItem","position":2,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#journey-to-the-extreme","name":"The Assignment: Journey to the Extreme","url":"https://www.theassignmentbooks.com/#journey-to-the-extreme","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2010","numberOfPages":162,"isbn":"9780881445183","bookFormat":"https://schema.org/Paperback","inLanguage":"en","sameAs":["https://www.amazon.com/dp/0881445185"]}},
+          {"@type":"ListItem","position":3,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#path-unveiled","name":"Path Unveiled","url":"https://www.theassignmentbooks.com/#path-unveiled","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2014","numberOfPages":288,"isbn":"9780989322034","inLanguage":"en","sameAs":["https://www.amazon.com/dp/0989322033","https://www.amazon.com/dp/B00IIMJ9CW"]}},
+          {"@type":"ListItem","position":4,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#assignment-workbook","name":"The Assignment Workbook","url":"https://www.theassignmentbooks.com/#assignment-workbook","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2010","numberOfPages":82,"isbn":"9780881445190","inLanguage":"en","sameAs":["https://www.amazon.com/dp/0881445193"]}},
+          {"@type":"ListItem","position":5,"item":{"@type":"Book","@id":"https://www.theassignmentbooks.com/#mission-one-eleven-core","name":"Mission One Eleven: The Core","url":"https://www.theassignmentbooks.com/#mission-one-eleven-core","author":{"@id":"https://www.karlhargestam.com/#person"},"datePublished":"2015","numberOfPages":196,"isbn":"9781942451204","inLanguage":"en","sameAs":["https://www.amazon.com/dp/1942451202"]}}
         ]
       }
     ]
@@ -146,16 +146,45 @@ picture.pic{display:contents}
 /* WCAG AA contrast */
 .milestone p{color:#fff}
 .follow .kicker{color:var(--red-deep)}
+/* New-release banner + direct retailer links */
+.release{background:var(--charcoal);color:#fff;border-bottom:4px solid var(--red)}
+.release-inner{width:min(calc(100% - 2.4rem),var(--max));margin:auto;padding:1.1rem 0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(1rem,3vw,2.4rem);align-items:center}
+.release-cover img{width:clamp(58px,7vw,84px);height:auto;display:block;box-shadow:0 14px 30px rgba(0,0,0,.5);transform:rotate(-3deg)}
+.release-tag{margin:0 0 .4rem;font-size:.7rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#f0a0a5}
+.release-tag span{background:var(--red);color:#fff;padding:.22rem .5rem;margin-right:.3rem}
+.release h2{font-size:clamp(1.6rem,3.4vw,2.6rem);letter-spacing:-.02em;line-height:.95}
+.release-sub{margin:.45rem 0 0;color:#d2ceca;font-size:clamp(.9rem,1.5vw,1rem);max-width:46rem}
+.release-actions{display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.release .buy{background:var(--red-deep)}.release .buy:hover{background:var(--red)}
+.alt-link{font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid currentColor;padding:.2rem 0}
+.book-copy .alt-link{color:var(--ink)}.release .alt-link{color:#fff}
+.all-books{margin:2rem 0 0;text-align:right}.all-books a{font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;border-bottom:2px solid var(--red);padding:.2rem 0}
+@media(max-width:780px){.release-inner{grid-template-columns:auto minmax(0,1fr)}.release-actions{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center}.all-books{text-align:left}}
+@media(max-width:430px){.release-actions .buy{width:auto}}
 
 </style>
 </head>
 <body>
   <a class="skip" href="#catalog">Skip to books</a>
-  <nav class="nav" aria-label="Primary">
-    <a href="#catalog">Books</a><a href="#impact">Impact</a><a href="#follow">Follow</a>
-  </nav>
+  <aside class="release" aria-labelledby="release-title">
+    <div class="release-inner">
+      <div class="release-cover" aria-hidden="true"><picture class="pic"><source type="image/avif" srcset="cover-manifesto.avif"><source type="image/webp" srcset="cover-manifesto.webp"><img src="cover-manifesto.jpg" alt="" width="280" height="457" decoding="async"></picture></div>
+      <div class="release-copy">
+        <p class="release-tag"><span>New release</span> · Newest book · September 2026</p>
+        <h2 id="release-title">One Chance: A Brief for the Global Assignment</h2>
+        <p class="release-sub">The Blessible Manifesto — a prophetic brief calling the Pentecostal Church of God to finish the Great Commission.</p>
+      </div>
+      <div class="release-actions">
+        <a class="buy" href="https://www.amazon.com/dp/B0HHMVRT21" target="_blank" rel="noopener" aria-label="Find on Amazon: One Chance paperback (opens in a new tab)">Find on Amazon <span aria-hidden="true">↗</span></a>
+        <a class="alt-link" href="https://www.amazon.com/dp/B0HHK2XG72" target="_blank" rel="noopener" aria-label="Kindle edition: One Chance on Amazon (opens in a new tab)">Kindle edition <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </aside>
 
   <header class="hero">
+    <nav class="nav" aria-label="Primary">
+      <a href="#catalog">Books</a><a href="#impact">Impact</a><a href="#follow">Follow</a>
+    </nav>
     <picture class="hero-bg" aria-hidden="true">
       <source type="image/avif" media="(max-aspect-ratio: 3/4)" srcset="/books-hero-portrait-960.avif">
       <source type="image/webp" media="(max-aspect-ratio: 3/4)" srcset="/books-hero-portrait-960.webp">
@@ -186,59 +215,7 @@ picture.pic{display:contents}
       </div>
 
       <div class="catalog">
-        <article class="book">
-          <div class="cover-stage">
-            <picture class="pic"><source type="image/avif" srcset="cover-journey.avif"><source type="image/webp" srcset="cover-journey.webp"><img class="cover-img" src="cover-journey.jpg" alt="Original cover: The Assignment: Journey to the Extreme" width="402" height="631" decoding="async" loading="lazy"></picture>
-          </div>
-          <div class="book-copy">
-            <p class="series">The Assignment Series · Volume 1</p>
-            <h3>The Assignment: Journey to the Extreme</h3>
-            <p class="details">Novel · 2010 · 162 pages</p>
-            <p>A novel rooted in the choice to leave comfort and carry the Gospel across cultures.</p>
-            <div class="actions"><a class="buy" href="https://www.amazon.com/Karl-Hargestam/e/B00IIVNT1K" target="_blank" rel="noopener">Find on Amazon <span aria-hidden="true">↗</span></a></div>
-          </div>
-        </article>
-
-        <article class="book">
-          <div class="cover-stage">
-            <picture class="pic"><source type="image/avif" srcset="cover-path.avif"><source type="image/webp" srcset="cover-path.webp"><img class="cover-img" src="cover-path.jpg" alt="Original cover: Path Unveiled" width="402" height="610" decoding="async" loading="lazy"></picture>
-          </div>
-          <div class="book-copy">
-            <p class="series">The Assignment Series · Volume 2</p>
-            <h3>Path Unveiled</h3>
-            <p class="details">2014 · 288 pages</p>
-            <p>The story continues into faith, risk and the next step of obedience.</p>
-            <div class="actions"><a class="buy" href="https://www.amazon.com/Karl-Hargestam/e/B00IIVNT1K" target="_blank" rel="noopener">Find on Amazon <span aria-hidden="true">↗</span></a></div>
-          </div>
-        </article>
-
-        <article class="book">
-          <div class="cover-stage">
-            <picture class="pic"><source type="image/avif" srcset="cover-workbook.avif"><source type="image/webp" srcset="cover-workbook.webp"><img class="cover-img" src="cover-workbook.jpg" alt="Original cover: The Assignment Workbook" width="403" height="541" decoding="async" loading="lazy"></picture>
-          </div>
-          <div class="book-copy">
-            <p class="series">Companion guide</p>
-            <h3>The Assignment Workbook</h3>
-            <p class="details">2010 · 82 pages</p>
-            <p>A practical companion designed to turn the central message into reflection and response.</p>
-            <div class="actions"><a class="buy" href="https://www.amazon.com/Karl-Hargestam/e/B00IIVNT1K" target="_blank" rel="noopener">Find on Amazon <span aria-hidden="true">↗</span></a></div>
-          </div>
-        </article>
-
-        <article class="book">
-          <div class="cover-stage">
-            <picture class="pic"><source type="image/avif" srcset="cover-core.avif"><source type="image/webp" srcset="cover-core.webp"><img class="cover-img" src="cover-core.jpg" alt="Original cover: Mission One Eleven: The Core" width="401" height="603" decoding="async" loading="lazy"></picture>
-          </div>
-          <div class="book-copy">
-            <p class="series">Training resource</p>
-            <h3>Mission One Eleven: The Core</h3>
-            <p class="details">2015 · 196 pages</p>
-            <p>A field-minded framework for mobilizing people to reach the unreached.</p>
-            <div class="actions"><a class="buy" href="https://www.amazon.com/Karl-Hargestam/e/B00IIVNT1K" target="_blank" rel="noopener">Find on Amazon <span aria-hidden="true">↗</span></a><span class="availability">Limited availability</span></div>
-          </div>
-        </article>
-
-        <article class="book">
+        <article class="book" id="one-chance-blessible-manifesto">
           <div class="cover-stage">
             <picture class="pic"><source type="image/avif" srcset="cover-manifesto.avif"><source type="image/webp" srcset="cover-manifesto.webp"><img class="cover-img" src="cover-manifesto.jpg" alt="Original cover: One Chance: A Brief for the Global Assignment — The Blessible Manifesto" width="280" height="457" decoding="async" loading="lazy"></picture>
           </div>
@@ -247,10 +224,63 @@ picture.pic{display:contents}
             <h3>One Chance: A Brief for the Global Assignment</h3>
             <p class="details">The Blessible Manifesto</p>
             <p>A brief for the global assignment.</p>
-            <div class="actions"><a class="buy" href="https://www.amazon.com/Karl-Hargestam/e/B00IIVNT1K" target="_blank" rel="noopener">Find on Amazon <span aria-hidden="true">↗</span></a></div>
+            <div class="actions"><a class="buy" href="https://www.amazon.com/dp/B0HHMVRT21" target="_blank" rel="noopener" aria-label="Find on Amazon: One Chance: A Brief for the Global Assignment (opens in a new tab)">Find on Amazon <span aria-hidden="true">↗</span></a><a class="alt-link" href="https://www.amazon.com/dp/B0HHK2XG72" target="_blank" rel="noopener" aria-label="Kindle edition: One Chance on Amazon (opens in a new tab)">Kindle edition <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </article>
+
+        <article class="book" id="journey-to-the-extreme">
+          <div class="cover-stage">
+            <picture class="pic"><source type="image/avif" srcset="cover-journey.avif"><source type="image/webp" srcset="cover-journey.webp"><img class="cover-img" src="cover-journey.jpg" alt="Original cover: The Assignment: Journey to the Extreme" width="402" height="631" decoding="async" loading="lazy"></picture>
+          </div>
+          <div class="book-copy">
+            <p class="series">The Assignment Series · Volume 1</p>
+            <h3>The Assignment: Journey to the Extreme</h3>
+            <p class="details">Novel · 2010 · 162 pages</p>
+            <p>A novel rooted in the choice to leave comfort and carry the Gospel across cultures.</p>
+            <div class="actions"><a class="buy" href="https://www.amazon.com/dp/0881445185" target="_blank" rel="noopener" aria-label="Find on Amazon: The Assignment: Journey to the Extreme (opens in a new tab)">Find on Amazon <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </article>
+
+        <article class="book" id="path-unveiled">
+          <div class="cover-stage">
+            <picture class="pic"><source type="image/avif" srcset="cover-path.avif"><source type="image/webp" srcset="cover-path.webp"><img class="cover-img" src="cover-path.jpg" alt="Original cover: Path Unveiled" width="402" height="610" decoding="async" loading="lazy"></picture>
+          </div>
+          <div class="book-copy">
+            <p class="series">The Assignment Series · Volume 2</p>
+            <h3>Path Unveiled</h3>
+            <p class="details">2014 · 288 pages</p>
+            <p>The story continues into faith, risk and the next step of obedience.</p>
+            <div class="actions"><a class="buy" href="https://www.amazon.com/dp/0989322033" target="_blank" rel="noopener" aria-label="Find on Amazon: Path Unveiled (opens in a new tab)">Find on Amazon <span aria-hidden="true">↗</span></a><a class="alt-link" href="https://www.amazon.com/dp/B00IIMJ9CW" target="_blank" rel="noopener" aria-label="Kindle edition: Path Unveiled on Amazon (opens in a new tab)">Kindle edition <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </article>
+
+        <article class="book" id="assignment-workbook">
+          <div class="cover-stage">
+            <picture class="pic"><source type="image/avif" srcset="cover-workbook.avif"><source type="image/webp" srcset="cover-workbook.webp"><img class="cover-img" src="cover-workbook.jpg" alt="Original cover: The Assignment Workbook" width="403" height="541" decoding="async" loading="lazy"></picture>
+          </div>
+          <div class="book-copy">
+            <p class="series">Companion guide</p>
+            <h3>The Assignment Workbook</h3>
+            <p class="details">2010 · 82 pages</p>
+            <p>A practical companion designed to turn the central message into reflection and response.</p>
+            <div class="actions"><a class="buy" href="https://www.amazon.com/dp/0881445193" target="_blank" rel="noopener" aria-label="Find on Amazon: The Assignment Workbook (opens in a new tab)">Find on Amazon <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </article>
+
+        <article class="book" id="mission-one-eleven-core">
+          <div class="cover-stage">
+            <picture class="pic"><source type="image/avif" srcset="cover-core.avif"><source type="image/webp" srcset="cover-core.webp"><img class="cover-img" src="cover-core.jpg" alt="Original cover: Mission One Eleven: The Core" width="401" height="603" decoding="async" loading="lazy"></picture>
+          </div>
+          <div class="book-copy">
+            <p class="series">Training resource</p>
+            <h3>Mission One Eleven: The Core</h3>
+            <p class="details">2015 · 196 pages</p>
+            <p>A field-minded framework for mobilizing people to reach the unreached.</p>
+            <div class="actions"><a class="buy" href="https://www.amazon.com/dp/1942451202" target="_blank" rel="noopener" aria-label="Find on Amazon: Mission One Eleven: The Core (opens in a new tab)">Find on Amazon <span aria-hidden="true">↗</span></a><span class="availability">Limited availability</span></div>
           </div>
         </article>
       </div>
+      <p class="all-books"><a href="https://www.amazon.com/Karl-Hargestam/e/B00IIVNT1K" target="_blank" rel="noopener">All books by Karl Hargestam on Amazon <span aria-hidden="true">↗</span></a></p>
     </section>
 
     <section class="milestone" id="impact">
