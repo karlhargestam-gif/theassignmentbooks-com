@@ -1,14 +1,50 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/one-chance-blessible-manifesto", "destination": "/one-chance/", "permanent": true },
-    { "source": "/the-blessible-manifesto", "destination": "/one-chance/", "permanent": true },
-    { "source": "/mission-one-eleven-core", "destination": "/mission-one-eleven-the-core/", "permanent": true },
-    { "source": "/mission-one-eleven", "destination": "/mission-one-eleven-the-core/", "permanent": true },
-    { "source": "/the-core", "destination": "/mission-one-eleven-the-core/", "permanent": true },
-    { "source": "/the-assignment", "destination": "/journey-to-the-extreme/", "permanent": true },
-    { "source": "/the-assignment-journey-to-the-extreme", "destination": "/journey-to-the-extreme/", "permanent": true },
-    { "source": "/assignment-workbook", "destination": "/the-assignment-workbook/", "permanent": true },
-    { "source": "/workbook", "destination": "/the-assignment-workbook/", "permanent": true }
+    {
+      "source": "/one-chance-blessible-manifesto/",
+      "destination": "/one-chance/",
+      "permanent": true
+    },
+    {
+      "source": "/the-blessible-manifesto/",
+      "destination": "/one-chance/",
+      "permanent": true
+    },
+    {
+      "source": "/mission-one-eleven-core/",
+      "destination": "/mission-one-eleven-the-core/",
+      "permanent": true
+    },
+    {
+      "source": "/mission-one-eleven/",
+      "destination": "/mission-one-eleven-the-core/",
+      "permanent": true
+    },
+    {
+      "source": "/the-core/",
+      "destination": "/mission-one-eleven-the-core/",
+      "permanent": true
+    },
+    {
+      "source": "/the-assignment/",
+      "destination": "/journey-to-the-extreme/",
+      "permanent": true
+    },
+    {
+      "source": "/the-assignment-journey-to-the-extreme/",
+      "destination": "/journey-to-the-extreme/",
+      "permanent": true
+    },
+    {
+      "source": "/assignment-workbook/",
+      "destination": "/the-assignment-workbook/",
+      "permanent": true
+    },
+    {
+      "source": "/workbook/",
+      "destination": "/the-assignment-workbook/",
+      "permanent": true
+    }
   ]
 }
